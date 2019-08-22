@@ -87,15 +87,15 @@ class AndroidMessageTest extends \PHPUnit_Framework_TestCase
     {
         $msg = new AndroidMessage();
         $msg->setDeviceIdentifier("foo");
-        $this->assertCount(1, $msg->getGCMIdentifiers());
+        $this->assertCount(1, $msg->getIdentifiers());
     }
 
     public function testAddingGCMIdentifiers()
     {
         $msg = new AndroidMessage();
-        $msg->addGCMIdentifier("foo");
-        $msg->addGCMIdentifier("bar");
-        $this->assertCount(2, $msg->getGCMIdentifiers());
+        $msg->addIdentifier("foo");
+        $msg->addIdentifier("bar");
+        $this->assertCount(2, $msg->getIdentifiers());
     }
 
     public function testSetMessageIsReturnedInGetData()

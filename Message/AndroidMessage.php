@@ -37,11 +37,11 @@ class AndroidMessage implements MessageInterface
     protected $collapseKey = self::DEFAULT_COLLAPSE_KEY;
 
     /**
-     * Whether this is a GCM message
+     * Whether this is a type of message
      *
      * @var bool
      */
-    protected $isGCM = false;
+    protected $type = false;
 
     /**
      * A collection of device identifiers that the message
@@ -56,7 +56,7 @@ class AndroidMessage implements MessageInterface
      *
      * @var array
      */
-    protected $gcmOptions = array();
+    protected $options = array();
 
     /**
      * Sets the string message
@@ -136,7 +136,7 @@ class AndroidMessage implements MessageInterface
      */
     public function getTargetOS()
     {
-        return ($this->isGCM ? Types::OS_ANDROID_GCM : Types::OS_ANDROID_C2DM);
+        return $this->type;
     }
 
     /**
@@ -172,24 +172,14 @@ class AndroidMessage implements MessageInterface
     }
 
     /**
-     * Set whether this is a GCM message
+     * Set whether this is a type of message
      * (default false)
      *
-     * @param $gcm
+     * @param $type
      */
-    public function setGCM($gcm)
+    public function setType($type)
     {
-        $this->isGCM = !!$gcm;
-    }
-
-    /**
-     * Returns whether this is a GCM message
-     *
-     * @return mixed
-     */
-    public function isGCM()
-    {
-        return $this->isGCM;
+        $this->type = $type;
     }
 
     /**
@@ -198,7 +188,7 @@ class AndroidMessage implements MessageInterface
      *
      * @return mixed
      */
-    public function getGCMIdentifiers()
+    public function getIdentifiers()
     {
         return array_values($this->allIdentifiers);
     }
@@ -207,7 +197,7 @@ class AndroidMessage implements MessageInterface
      * Adds a device identifier to the GCM list
      * @param string $identifier
      */
-    public function addGCMIdentifier($identifier)
+    public function addIdentifier($identifier)
     {
         $this->allIdentifiers[$identifier] = $identifier;
     }
@@ -224,9 +214,9 @@ class AndroidMessage implements MessageInterface
      * Sets GCM options
      * @param array $options
      */
-    public function setGCMOptions($options)
+    public function setOptions($options)
     {
-        $this->gcmOptions = $options;
+        $this->options = $options;
     }
 
     /**
@@ -234,8 +224,8 @@ class AndroidMessage implements MessageInterface
      *
      * @return array
      */
-    public function getGCMOptions()
+    public function getOptions()
     {
-        return $this->gcmOptions;
+        return $this->options;
     }
 }

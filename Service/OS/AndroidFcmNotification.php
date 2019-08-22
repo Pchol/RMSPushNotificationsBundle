@@ -11,7 +11,7 @@ use Buzz\Browser,
     Buzz\Client\Curl,
     Buzz\Client\MultiCurl;
 
-class AndroidGCMNotification extends AbstractAndroidCMNotification
+class AndroidFcmNotification extends AbstractAndroidCMNotification
 {
 
     /**
@@ -19,12 +19,12 @@ class AndroidGCMNotification extends AbstractAndroidCMNotification
      *
      * @var string
      */
-    protected $apiURL = "https://android.googleapis.com/gcm/send";
+    protected $apiURL = "https://fcm.googleapis.com/fcm/send";
 
     /**
      * Max registration count
      *
      * @var integer
      */
-    protected $registrationIdMaxCount = 1000;
+    protected $registrationIdMaxCount = 100;
 }
