@@ -99,9 +99,6 @@ class AbstractAndroidCMNotification implements OSNotificationServiceInterface
         if (!$message instanceof AndroidMessage) {
             throw new InvalidMessageTypeException(sprintf("Message type '%s' not supported by GCM", get_class($message)));
         }
-        if (!$message->isGCM()) {
-            throw new InvalidMessageTypeException("Non-GCM messages not supported by the Android GCM sender");
-        }
 
         $headers = array(
             "Authorization: key=" . $this->apiKey,

@@ -11,7 +11,7 @@ use Buzz\Browser,
     Buzz\Client\Curl,
     Buzz\Client\MultiCurl;
 
-class AndroidFcmNotification extends AbstractAndroidCMNotification
+class AndroidFCMNotification extends AbstractAndroidCMNotification
 {
 
     /**
